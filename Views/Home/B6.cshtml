@@ -1,0 +1,117 @@
+﻿@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Bài tập 6 - Slideshow</title>
+    <style>
+        body {
+            font-family: sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            height: 100vh;
+            margin: 0;
+            background-color: #f0f0f0;
+        }
+
+        .slideshow-container {
+            max-width: 600px;
+            position: relative;
+            margin: auto;
+            border: 3px solid #ccc;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+        }
+
+        .slide-image {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        .nav-button {
+            cursor: pointer;
+            position: absolute;
+            top: 50%;
+            width: auto;
+            padding: 16px;
+            margin-top: -22px;
+            color: white;
+            font-weight: bold;
+            font-size: 20px;
+            transition: 0.6s ease;
+            border-radius: 0 3px 3px 0;
+            user-select: none;
+            background-color: rgba(0,0,0,0.5);
+        }
+
+        .prev {
+            left: 0;
+            border-radius: 3px 0 0 3px;
+        }
+
+        .next {
+            right: 0;
+            border-radius: 0 3px 3px 0;
+        }
+
+        .nav-button:hover {
+            background-color: rgba(0,0,0,0.8);
+        }
+    </style>
+</head>
+<body>
+
+    <h2>Slideshow Hình Ảnh</h2>
+
+    <div class="slideshow-container">
+        <img id="slide" class="slide-image" src="https://picsum.photos/600/400?random=1" alt="slide image">
+
+        <a class="prev nav-button" onclick="changeSlide(-1)">&#10094;</a>
+        <a class="next nav-button" onclick="changeSlide(1)">&#10095;</a>
+    </div>
+
+    <script>
+        
+        const images = [
+            "https://picsum.photos/600/400?random=1",
+            "https://picsum.photos/600/400?random=2",
+            "https://picsum.photos/600/400?random=3",
+            "https://picsum.photos/600/400?random=4"
+        ];
+
+        let currentIndex = 0;
+        const slideElement = document.getElementById('slide');
+
+      
+        function showSlide(index) {
+            
+            if (index >= images.length) {
+                currentIndex = 0;
+            } else if (index < 0) {
+                currentIndex = images.length - 1;
+            } else {
+                currentIndex = index;
+            }
+            slideElement.src = images[currentIndex];
+        }
+
+      
+        function changeSlide(n) {
+            showSlide(currentIndex + n);
+        }
+
+      
+        setInterval(function() {
+            changeSlide(1);
+        }, 3000);
+
+    </script>
+
+</body>
+</html>

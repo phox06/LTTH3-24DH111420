@@ -1,0 +1,32 @@
+﻿@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Bài tập 1 - In số</title>
+</head>
+<body>
+    <h2>In các số từ 1 đến N</h2>
+    <input type="number" id="soN" placeholder="Nhập vào số N">
+    <button onclick="inSo()">In ra kết quả</button>
+    <p id="ketQua"></p>
+
+    <script>
+        function inSo() {
+            var n = parseInt(document.getElementById('soN').value);
+            var ketQuaChuoi = "";
+
+            if (isNaN(n) || n <= 0) {
+                ketQuaChuoi = "Vui lòng nhập một số nguyên dương.";
+            } else {
+                for (var i = 1; i <= n; i++) {
+                    ketQuaChuoi += i + " ";
+                }
+            }
+            document.getElementById('ketQua').innerText = ketQuaChuoi;
+        }
+    </script>
+</body>
+</html>

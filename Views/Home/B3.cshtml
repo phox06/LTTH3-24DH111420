@@ -1,0 +1,56 @@
+﻿@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title id="tieuDeTrang">Tiêu đề mặc định</title>
+</head>
+<body>
+    <h2>Thay đổi thuộc tính trang</h2>
+    <table>
+        <tr>
+            <td>Màu nền:</td>
+            <td><input type="text" id="MauNen" value="lightblue"></td>
+        </tr>
+        <tr>
+            <td>Màu chữ:</td>
+            <td><input type="text" id="MauChu" value="darkblue"></td>
+        </tr>
+        <tr>
+            <td>Tiêu đề:</td>
+            <td><input type="text" id="TieuDe" value="Tiêu đề mới!"></td>
+        </tr>
+        <tr>
+            <td>Thanh trạng thái:</td>
+            <td><input type="text" id="TrangThai" value="Chào bạn!"></td>
+        </tr>
+    </table>
+    <button onclick="thayDoi()">Thay đổi</button>
+
+    <script>
+        function thayDoi() {
+            var mauNen = document.getElementById('MauNen').value;
+            var mauChu = document.getElementById('MauChu').value;
+            var tieuDe = document.getElementById('TieuDe').value;
+            var trangThai = document.getElementById('TrangThai').value;
+
+           
+            document.body.style.backgroundColor = mauNen;
+
+            
+            document.body.style.color = mauChu;
+
+            
+            document.title = tieuDe;
+
+            
+            window.status = trangThai;
+            console.log("Trạng thái đã cố gắng đặt: " + trangThai);
+        }
+    </script>
+</body>
+</html>
